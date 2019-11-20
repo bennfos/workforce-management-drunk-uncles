@@ -1,9 +1,16 @@
-# workforce-management-drunk-uncles
-workforce-management-drunk-uncles created by GitHub Classroom
+# Bangazon Workforce Management
 
-Description: Bangazon Workforce Management is an ASP.NET MVC Web Application built using Visual Studio on Windows and uses SQL Server as the database engine. This application was designed to manage internal resources for a fictional e-commerce company called Bangazon. The application will allow users to create, view, edit and/or delete Employees, Training Programs, Departments, and Computers.
+##Team
+Bennett Foster
+Allison Patton
+Michael Stiles
+Carl Barringer
+Noah Bartfield
 
-Project Setup: 
+##Description
+Bangazon Workforce Management is an ASP.NET MVC Web Application built using Visual Studio on Windows and uses SQL Server as the database engine. This application was designed to manage internal resources for a fictional e-commerce company called Bangazon. The application will allow users to create, view, edit and/or delete Employees, Training Programs, Departments, and Computers.
+
+##Project Setup
 
 1) Create new SQL server Database and name it BangazonWorkforce
 2) Run a new query and copy & paste the script at the end of this README file
@@ -12,9 +19,7 @@ Project Setup:
 
 
 
-
-
-
+##SQL Script
 
 ```
 CREATE TABLE Department (
