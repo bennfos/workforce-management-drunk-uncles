@@ -8,7 +8,7 @@
 ⋅⋅⋅Noah Bartfield⋅⋅⋅
 
 ## Description
-Bangazon Workforce Management is an ASP.NET MVC Web Application built using Visual Studio on Windows and uses SQL Server as the database engine. This application was designed to manage internal resources for a fictional e-commerce company called Bangazon. The application will allow users to create, view, edit and/or delete Employees, Training Programs, Departments, and Computers.
+Bangazon Workforce Management is an ASP.NET MVC Web Application designed to manage internal resources for a fictional e-commerce company called Bangazon. Users can create, view, edit and/or delete Employees, Training Programs, Departments, and Computers. This app was built using Visual Studio on Windows, and uses SQL Server as the database engine.
 
 ## Project Setup
 
