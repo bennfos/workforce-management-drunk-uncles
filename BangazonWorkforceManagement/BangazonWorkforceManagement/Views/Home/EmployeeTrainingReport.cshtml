@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "EmployeeTrainingReport";
+}
+
+<h1>EmployeeTrainingReport</h1>
+
+<div class="row">
+    <label for="department-select">Department:  </label>
+    
+    <select class="select" id="department-select" asp-items="@Model.DepartmentOptions"></select>
+</div>
+<div class="row">
+    <canvas id="output"></canvas>
+</div>
+
+@* It's all javascript below this line. Remember this code runs on the client. *@
+@section scripts {
+
+    @*
+        Pull in the chart.js library from a Content Delivery Network (CDN)
+
+        Chart.js documentation
+        https://www.chartjs.org/docs/latest/getting-started/
+    *@
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+
+        function getEmployeesInDepartment(departmentId) {
+            // Hit the API running in our .net app
+            return fetch(`/api/EmployeeTrainingProgramReportAPI/${departmentId}`)
+                .then(resp => resp.json());
+        }
+        const departmentSelect = document.getElementById('department-select');
+        const output = document.getElementById('output').getContext('2d');
+        let chart = null;
+        departmentSelect.addEventListener("change", (evt) => {
+            // If we already have a chart, destroy it to make room for the next one.
+            if (chart) {
+                chart.destroy();
+            }
+            const selectedDepartmentId = evt.target.value;
+            getEmployeesInDepartment(selectedDepartmentId)
+                .then(employees => {
+                    chart = new Chart(output, {
+                        type: 'bar',
+                        data: {
+                            labels: employees.map(e => `${e.firstName} ${e.lastName}`),
+                            datasets: [{
+                                borderColor: 'rgb(145, 250, 238)',
+                                backgroundColor: 'rgb(145, 250, 238)',
+                                label: "Training Program Count",
+                                data: employees.map(e => e.trainingProgramCount)
+                            }]
+                        }
+                    });
+                });
+        });
+    </script>
+}
